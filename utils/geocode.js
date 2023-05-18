@@ -1,7 +1,8 @@
 const request = require("request");
+const { locationKey } = require("../secretkeys");
 
 const geocode = (address, callback) => {
-  const url = `https://us1.locationiq.com/v1/search?key=pk.69836b884c5efa8ef7872224fed683b4&q=${address}&format=json&limit=1`;
+  const url = `https://us1.locationiq.com/v1/search?key=${locationKey}&q=${address}&format=json&limit=1`;
 
   request({ url, json: true }, (error, { body } = {}) => {
     if (error) {
